@@ -6,8 +6,7 @@
 # @Email    :endliss@sina.cn
 ------------------------------
 """
-
-# 读取文件，r读模式
-fp = open('text.txt','r')
-data = fp.read()
-print(data)
+# 写入文件名称，w写入模式
+fp = open('../text.txt', 'w')
+fp.write('hello world')
+fp.close()
