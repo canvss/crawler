@@ -25,6 +25,7 @@ def get_webpage():
     }
     # 通过urlencode将参数进行unicode转码拼接
     new_url = url + urllib.parse.urlencode(data)
+    # 请求对象的定制
     request = urllib.request.Request(url=new_url,headers=headers)
     response = urllib.request.urlopen(request,context=ssl.SSLContext())
     if response.getcode() == 200:

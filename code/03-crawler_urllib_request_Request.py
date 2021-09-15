@@ -8,7 +8,7 @@
 """
 
 '''
-    通过urllib.request.Request来传入User-Agent
+    通过urllib.request.Request来定制请求对象，传入User-Agent
 '''
 
 import urllib.request
