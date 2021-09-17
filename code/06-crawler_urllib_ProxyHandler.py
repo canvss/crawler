@@ -15,7 +15,7 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def request():
-    url = 'http://www.baidu.com/s?wd=ip'
+    url = 'https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&tn=baidu&wd=ip%E5%9C%B0%E5%9D%80%E6%9F%A5%E8%AF%A2'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36',
     }
@@ -23,7 +23,7 @@ def request():
 
 def ProxyHandler():
     proxies = {
-        'http':'117.69.230.204:3256',
+        'http':'58.243.29.58:4554',
     }
     return urllib.request.ProxyHandler(proxies=proxies)
 
