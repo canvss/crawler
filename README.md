@@ -87,7 +87,6 @@ HTTP响应报文属性
 - 域名解析：当用户在浏览器地址栏输入http://www.baidu.com 发起一个请求，首先会把该域名解析为ip地址。
 
     DNS 的详细解析过程：http://vinsent.blog.51cto.com/13116656/1967876
-    
 
 - 建立连接：浏览器会开启一个随机端口向服务器的80端口发起tcp连接请求，经过3次握手后建立tcp连接，然后向服务器发起httpd请求。   
   - TCP三次握手
@@ -108,7 +107,67 @@ HTTP响应报文属性
 - 发送响应报文：响应报文构建完成后，发送响应报文
 - 记录日志：最后，当事务结束时，web服务器会在日志文件中添加一个条目，来描述已执行的事务
 
+---
 
+
+
+### Cookie
+什么是Cookie？
+
+![](code/imgs/cookie.jpeg)
+
+  1. Cookie是一种在客户端保持HTTP状态信息的技术
+  2. Cookie实在浏览器访问WEB服务器的某个资源时，由WEB服务器在HTTP响应消息头中附带发送给浏览器的数据
+  3. 一旦WEB浏览器保存了某个Cookie，那么它在以后每次访问该WEB服务器时，都应在HTTP请求头中将这个Cookie发送给WEB服务器
+
+> Cookie技术最先被Netscape公司引入到Navigator浏览器中，
+> Cookie只是一段文本，所以它只能保存字符串。
+
+Cookie功能特点：
+- 存储于浏览器头部/传输于HTTP头部
+- 写时带属性，读时无属性
+- HTTP头中Cookie：user=admin;pwd=123;
+- 属性name/value/expire/domain/path/.....
+- 由三元组[name,doman,path]确定唯一cookie
+
+Cookie的安全属性：
+- secure属性：当设置为true时，表示创建的Cookie会被以安全的形式向服务器传输，也就是只能在HTTPS连接中被浏览器传递到服务器段进行会话验证，如果时HTTP连接则不会传递该信息，所以不能窃取到Cookie的具体内容。
+- HttpOnly属性：如果在Cookie中设置了”HttpOnly“属性，那么通过程序（JS脚本等）将无法读取到Cookie信息，这样能有效防止XSS攻击。
+
+> secure属性是防止信息在传递的过程中被监听捕获后信息泄露，HttpOnly属性的目的是防止程序获取cookie后进行攻击
+
+### Session
+什么是Session？
+
+![](code/imgs/session2.png)
+
+  1. 使用Cookie和附加URL参数都可以将上次请求的状态信息传递到下次请求中，但是如果传递的状态信息较多，将极大降低网络传输效率和增大服务器端程序处理的难度。
+  2. Session是一种将会话状态保存在服务器端的技术。
+  3. 客户端需要接收、记忆和发送Session的会话标识号，Session可以且通常是借助于Cookie来传递会话标识号。
+
+Session的跟踪机制
+
+Session的超时管理
+
+利用Cookie实现Session跟踪
+- 如果web服务器处理某个访问请求时创建了新的HttpSession对象，它将会把会话标识号作为一个Cookie项加入到响应消息中，通常情况下，浏览器在随后发出的访问请求中又将会话标识号以Cookie的形式回传给web服务器。
+- web服务器端程序依据回传的会话标识号就知道以前已经为该客户端创建了HttpSession对象，不必再为客户端创建新的HttpSession对象。而是直接使用与该会话标识号匹配的HttpSession对象，通过这种方式就实现了对同一个客户端的会话状态的跟踪。
+
+### Cookie和Session区别
+
+![](code/imgs/session&cookie.png)
+
+session和cookie同样都是针对单独用户对象，不同的用户在访问网站时，都会拥有各种的session或者cookie，不同用户之间互不干扰。
+- 存储位置
+- 生命周期
+
+cookie和session区别”
+- cookie数据存放在客户的浏览器，session数据存放在服务器。
+- cookie不是很安全，可以分析存放在本地COOKIE并进行COOKIE欺骗考虑安全应当使用session。
+- session会在一定时间内保存在服务器。当访问增多，会占用服务器性能。考虑减轻服务器性能方面，应当使用COOKIE。
+- 单个cookie在客户端的限制时3k。
+
+###### 原文地址：https://cshihong.github.io/2019/06/19/HTTP%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/
 
 ---
 
