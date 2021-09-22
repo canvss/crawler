@@ -1,4 +1,4 @@
-![](code/img/spider-5.png)
+![](code/imgs/spider-5.png)
 
 ---
 
@@ -20,7 +20,7 @@
 ### HTTP请求头和响应头
 >HTTP请求报文由3部门组成(请求行+请求头+请求体)
 
-![](code/img/http01.png)
+![](code/imgs/http01.png)
 
 HTTP请求报文
 
@@ -49,7 +49,7 @@ HTTP请求报文属性
 ### HTTP响应报文
 >响应报文由三个部分组成（相应行，响应头，响应体）
 
-![](code/img/http04.png)
+![](code/imgs/http04.png)
 
 - 报文协议及版本；
 
@@ -61,7 +61,7 @@ HTTP请求报文属性
 
 HTTP状态码
 
-![](code/img/http-status-return.png)
+![](code/imgs/http-status-return.png)
 
 - 200 OK 表示成功
 - 303 重定向,把你重定向到其他页面
@@ -78,7 +78,7 @@ HTTP响应报文属性
 
 ---
 
-![](code/img/http03.png)
+![](code/imgs/http03.png)
 
 ### 一次完整的http请求过程：
 
@@ -93,7 +93,7 @@ HTTP响应报文属性
   - TCP三次握手
   - TCP四次挥手
 
-[![alt text](code/img/tcp.png "“TCP三次握手，四次挥手”你真的懂吗？")](https://zhuanlan.zhihu.com/p/53374516)
+[![alt text](code/imgs/tcp.png "“TCP三次握手，四次挥手”你真的懂吗？")](https://zhuanlan.zhihu.com/p/53374516)
 
 - 接收请求：接受请求所要完成的工作就是接收来自网络的请求报文中对某一资源的请求过程
   - 单进程I/O模型
@@ -112,7 +112,7 @@ HTTP响应报文属性
 
 ---
 
-![](code/img/spider12.jpg)
+![](code/imgs/spider12.jpg)
 
 ## 爬虫
 
@@ -166,7 +166,7 @@ Deep Web 爬虫体系结构包含六个基本功能模块 （爬行控制器、�
  - 竞争对手监控
  - 舆情监控
 
-![](code/img/spider-10.jpeg)
+![](code/imgs/spider-10.jpeg)
 
 ### 常见反爬手段
 1. 反爬的原因
