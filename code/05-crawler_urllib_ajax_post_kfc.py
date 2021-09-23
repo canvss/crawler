@@ -10,7 +10,7 @@
 
 import urllib.request,urllib.parse,ssl
 
-def creat_request(pageIndex):
+def create_request(pageIndex):
     url = 'http://www.kfc.com.cn/kfccda/ashx/GetStoreList.ashx?op=cname'
     data = {
         'cname': '北京',
@@ -35,5 +35,5 @@ def download(page,content):
 
 if __name__ == '__main__':
     for page in range(1,11):
-        download(page,get_content(creat_request(page)))
+        download(page,get_content(create_request(page)))
     print('over!!!')
