@@ -61,7 +61,7 @@ HTTP请求报文属性
 
 HTTP状态码
 
-![](code/imgs/http-status-return.png)
+![](code/imgs/status_code.png)
 
 - 200 OK 表示成功
 - 303 重定向,把你重定向到其他页面
