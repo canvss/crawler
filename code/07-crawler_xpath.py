@@ -10,6 +10,7 @@
 
 from lxml import etree
 
+# etree.parse()读取本地HTMl
 tree = etree.parse('xpath_test.html')
 
 # 获取body/ul/li标签的内容
