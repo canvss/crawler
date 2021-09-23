@@ -158,7 +158,7 @@ session和cookie同样都是针对单独用户对象，不同的用户在访问�
 - 存储位置
 - 生命周期
 
-cookie和session区别”
+cookie和session区别
 - cookie数据存放在客户的浏览器，session数据存放在服务器。
 - cookie不是很安全，可以分析存放在本地COOKIE并进行COOKIE欺骗考虑安全应当使用session。
 - session会在一定时间内保存在服务器。当访问增多，会占用服务器性能。考虑减轻服务器性能方面，应当使用COOKIE。
