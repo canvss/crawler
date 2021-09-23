@@ -33,4 +33,7 @@ tree = etree.parse('xpath_test.html')
 
 # 获取body/ul/li标签的id包含l的内容
 list_li = tree.xpath('//ul/li[contains(@class,"c")]/text()')
-print(list_li)
+
+# 获取body/ul/li标签id为l1的class属性值
+attribute = tree.xpath('//ul/li[@id="l1"]/@class')
+print(attribute)
