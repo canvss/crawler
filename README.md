@@ -75,7 +75,6 @@ HTTP响应报文属性
 - Location：在重定向中或者创建新资源时使用
 - Set-Cookie：服务端可以设置客户端cookie
 
-
 ---
 
 ![](code/imgs/http03.png)
@@ -108,8 +107,6 @@ HTTP响应报文属性
 - 记录日志：最后，当事务结束时，web服务器会在日志文件中添加一个条目，来描述已执行的事务
 
 ---
-
-
 
 ### Cookie
 什么是Cookie？
