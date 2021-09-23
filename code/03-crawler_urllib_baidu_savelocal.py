@@ -14,6 +14,6 @@ import urllib.request
 url = 'http://www.baidu.com'
 response = urllib.request.urlopen(url)
 content = response.read().decode('utf-8')
-fp = open('百度首页.html','w')
+fp = open('百度首页.html','w',encoding='utf-8')
 fp.write(content)
 fp.close()
