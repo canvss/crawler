@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2021/9/29 19:33
 # @Author  : endless
-# @FileName: 10-crawler_selenium.py
+# @FileName: 10-crawler_selenium_method.py
 # @Email   : endliss@sina.cn
 
 '''
