@@ -371,9 +371,76 @@ Deep Web 爬虫体系结构包含六个基本功能模块 （爬行控制器、�
      
 - ###### 原文地址：https://blog.csdn.net/qq_43401941/article/details/109367328
 
-> robots.txt协议：robots.txt(小写)是一种存放与根目录下的ASCCI编码的文本文件，它通常搞忘网络蜘蛛，此网站中的哪些内容是不应被网络蜘蛛爬取的，哪些是可以被网络蜘蛛爬取的。robots.txt协议并不是一个规范，而只是约定俗成的，所以并不能保证网站的隐私。
+>###### robots.txt协议：robots.txt(小写)是一种存放与根目录下的ASCCI编码的文本文件，它通常搞忘网络蜘蛛，此网站中的哪些内容是不应被网络蜘蛛爬取的，哪些是可以被网络蜘蛛爬取的。robots.txt协议并不是一个规范，而只是约定俗成的，所以并不能保证网站的隐私。
+
+### Urllib
+
+##### urllib库使用
+
+##### 请求对象定制
+
+##### 编解码
+- urllib.parse.quote()
+- urllib.parse.urlencode()
+
+##### ajax的get请求（百度翻译）
+##### ajax的post请求（kfc官网）
+##### URLError\HTTPError
+- HTTPError类是URLError类的子类
+- 导入urllib.error.HTTPError urllib.error.URLError
+##### cookie登录（https://github.com/epover/python_crawler/blob/master/code/05-crawler_urllib_cookie_login.py）
+##### Handler处理器
+- 为什么要学习handler？
+   - urllib.request.urlopen(url) 不能定制请求头
+   - urllib.request.Request(url,headers,data)
+   - Handler 可以定制更高级的请求头
+
+##### 代理服务器（代理池）
+
+- 代理的日常功能
+  - 突破自身ip限制访问
+  - 访问一些单位或团体内部资源
+  - 提高访问速度
+  - 隐藏真实ip
+- 配置代理
+  - 创建Request对象
+  - 创建ProxyHandler对象
+  - handler对象创建opener对象
+  - opener.open发起请求
+>###### 案列:https://github.com/epover/python_crawler/blob/master/code/06-crawler_urllib_ProxyHandler.py
+>###### 案列:https://github.com/epover/python_crawler/blob/master/code/06-crawler_urllib_ProxyHandler_proxypool.py
 
 
+### 解析
+xpath
+- xpath插件安装（ctrl+shift+x）
+- 安装lxml库（pip install lxml）
+ ```
+from lxml import etree  导入lxml.etree  
+etree.parse()   解析本地文件
+etree.HTML()   解析服务器响应文件
+html_tree.xpath(xpath_url)
+ ```
+>###### 案列：抓取站长素材前10页图片(https://github.com/epover/python_crawler/blob/master/code/07-crawler_xpath_imgs.py)
+
+JsonPath
+- pip install jsonpath
+ ```
+obj = json.load(open('test.json','r',encoding='utf-8'))
+jsonpath.jsonpath(obj, 'jsonpath语法')
+ ```
+
+>###### 案列：淘票票城市数据(https://github.com/epover/python_crawler/blob/master/code/08-crawler_jsonpath_taopiaopiao_city.py)
+
+BeautifulSoup（bs4）
+- pip install bs4
+
+ ```
+rom bs4 import BeautifulSoup
+soup = BeautifulSoup(response.read().decode(),'lxml')
+ ```
+    
+### selenium
 
 
 
