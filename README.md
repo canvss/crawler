@@ -376,19 +376,31 @@ Deep Web 爬虫体系结构包含六个基本功能模块 （爬行控制器、�
 ### Urllib
 
 ##### urllib库使用
+>###### 案列:https://github.com/epover/python_crawler/blob/master/code/03-crawler_urllib_baidu_page.py
 
 ##### 请求对象定制
-
+>###### 案列:https://github.com/epover/python_crawler/blob/master/code/03-crawler_urllib_request_Request.py
 ##### 编解码
 - urllib.parse.quote()
+>###### 案列:https://github.com/epover/python_crawler/blob/master/code/04-crawler_urllib_parse_quote.py
 - urllib.parse.urlencode()
+>###### 案列:https://github.com/epover/python_crawler/blob/master/code/04-crawler_urllib_parse_urlencode.py
 
-##### ajax的get请求（百度翻译）
-##### ajax的post请求（kfc官网）
+
+##### ajax的get请求
+>###### 案列:百度翻译(https://github.com/epover/python_crawler/blob/master/code/04-crawler_urllib_post_baidu.py)
+
+##### ajax的post请求
+>###### 案列:kfc官网(https://github.com/epover/python_crawler/blob/master/code/05-crawler_urllib_ajax_post_kfc.py)
+
 ##### URLError\HTTPError
 - HTTPError类是URLError类的子类
 - 导入urllib.error.HTTPError urllib.error.URLError
-##### cookie登录（https://github.com/epover/python_crawler/blob/master/code/05-crawler_urllib_cookie_login.py）
+>###### 案列:https://github.com/epover/python_crawler/blob/master/code/05-crawler_urllib_except.py
+
+##### cookie登录
+>###### 案列:https://github.com/epover/python_crawler/blob/master/code/05-crawler_urllib_cookie_login.py
+
 ##### Handler处理器
 - 为什么要学习handler？
    - urllib.request.urlopen(url) 不能定制请求头
@@ -415,41 +427,261 @@ Deep Web 爬虫体系结构包含六个基本功能模块 （爬行控制器、�
 xpath
 - xpath插件安装（ctrl+shift+x）
 - 安装lxml库（pip install lxml）
- ```
-from lxml import etree  导入lxml.etree  
-etree.parse()   解析本地文件
-etree.HTML()   解析服务器响应文件
-html_tree.xpath(xpath_url)
+- 懒加载
+- xpath使用
+ ```python
+from lxml import etree
+
+# etree.parse()读取本地HTMl
+tree = etree.parse('07-xpath_test.html')
+
+# 获取body/ul/li标签的内容
+list_li = tree.xpath('body/ul/li/text()')
+
+# 获取body/ul/li标签id为l1的内容
+list_li = tree.xpath('//ul/li[@id="l1"]/text()')
+
+# 获取body/ul/li标签有id属性的内容
+list_li = tree.xpath('//ul/li[@id]/text()')
+
+# 获取body/ul/li标签有class属性的内容
+list_li = tree.xpath('//ul/li[@class]/text()')
+
+# 获取body/ul/li标签有id和有class属性的内容
+list_li = tree.xpath('//ul/li[@id and @class]/text()')
+
+# 获取body/ul/li标签的id以l开头的内容
+list_li = tree.xpath('//ul/li[starts-with(@id,"l")]/text()')
+
+# 获取body/ul/li标签的id包含l的内容
+list_li = tree.xpath('//ul/li[contains(@class,"c")]/text()')
+
+# 获取body/ul/li标签id为l1的class属性值
+attribute = tree.xpath('//ul/li[@id="l1"]/@class')
  ```
 >###### 案列：抓取站长素材前10页图片(https://github.com/epover/python_crawler/blob/master/code/07-crawler_xpath_imgs.py)
 
 JsonPath
 - pip install jsonpath
- ```
-obj = json.load(open('test.json','r',encoding='utf-8'))
-jsonpath.jsonpath(obj, 'jsonpath语法')
+- JsonPath使用
+ ```python
+import json,jsonpath
+
+object = json.load(open('08-crawler_jsonpath.json','r',encoding='utf-8'))
+
+# 获取所有书的作者
+author_list = jsonpath.jsonpath(object,'$.store.book[*].author')
+print(author_list)
+
+# 所有的作者
+author_list = jsonpath.jsonpath(object,'$..author')
+print(author_list)
+
+# store下面的所有元素
+tag_list = jsonpath.jsonpath(object,'$.store.*')
+print(tag_list)
+
+# store里面所有东西的price
+price = jsonpath.jsonpath(object,'$.store..price')
+print(price)
+
+# 第三本书
+book = jsonpath.jsonpath(object,'$..book[2]')
+print(book)
+
+# 最后一本书
+book = jsonpath.jsonpath(object,'$..book[(@.length-1)]')
+print(book)
+
+# 前面两本书
+book_list = jsonpath.jsonpath(object,'$..book[:2]')
+book_list = jsonpath.jsonpath(object,'$..book[0,1]')
+print(book_list)
+
+# 过滤出所有包含isbn的书
+book_list = jsonpath.jsonpath(object,'$..book[?(@.isbn)]')
+print(book_list)
+
+# 哪本书价格超过了10快
+book_list = jsonpath.jsonpath(object,'$..book[?(@.price>10)]')
+print(book_list)
  ```
 
 >###### 案列：淘票票城市数据(https://github.com/epover/python_crawler/blob/master/code/08-crawler_jsonpath_taopiaopiao_city.py)
 
 BeautifulSoup（bs4）
 - pip install bs4
+- bs4使用
+ ```python
+from bs4 import BeautifulSoup
 
+# 通过bs4解析本地文件,默认读取文件方式为gbk,所以需要指定utf-8编码
+soup = BeautifulSoup(open('09-crawler_bs4.html','r',encoding='utf-8'),'lxml')
+
+# 根据标签名查找到第一个符合条件的数据
+print(soup.a)
+
+# 获取标签的属性和属性值
+print(soup.a.attrs)
+
+# bs4的一些函数
+# (1) find
+# 返回的是第一个符合条件的数据
+print(soup.find('li'))
+
+# 根据title的值来找到对应的标签
+print(soup.find('a',title='a2'))
+
+# 根据class属性值来找到对应的标签,class语法已经纯在所以需要添加_
+print(soup.find('p',class_='p1'))
+
+# (2)find_all 返回所有匹配的标签list
+print(soup.findAll('li'))
+
+# 查找多个标签
+print(soup.findAll(['a','span']))
+
+# limit的作用是查找的前几个数据
+print(soup.findAll('li',limit=2))
+
+# (3) select
+# select查询返回一个list
+print(soup.select('li'))
+
+# 通过类选择器
+# 查找class属性为a1的标签
+print(soup.select('.a1'))
+print(soup.select('#l2'))
+
+# 属性选择器
+# 查找li标签中id=l2的标签
+print(soup.select('li[id="l2"]'))
+
+# 查找li标签中有id的标签
+print(soup.select('li[id]'))
+
+# 层级选择器
+# 后代选择器
+# 找到div下面的li
+print(soup.select('div li'))
+
+# 子代选择器:某标签的第一级标签
+print(soup.select('div > ul > span'))
+
+# 找到a标签和li标签的所有对象
+print(soup.select('a,li'))
+
+# 节点信息
+tag_l1 = soup.select('#l1')[0]
+print(tag_l1)
+
+# 获取标签内容
+print(tag_l1.get_text())
+
+# 获取标签对象中，存在标签那么string就获取不到数据，使用get_text()就能获取数据
+print(tag_l1.string)
+
+# 节点属性
+tag_obj = soup.select('#p1')[0]
+print(tag_obj.name)
+print(tag_obj.attrs)soup = BeautifulSoup(response.read().decode(),'lxml')
  ```
-rom bs4 import BeautifulSoup
-soup = BeautifulSoup(response.read().decode(),'lxml')
- ```
-    
+>###### 案列：星巴克菜单图片数据(https://github.com/epover/python_crawler/blob/master/code/09-crawler_bs4_starbucks_menu_picture.py)
+
 ### selenium
 
+1.什么是selenium？
+- Selenium是一个用于Web应用程序测试的工具
+- Selenium测试直接运行在浏览器中，模拟用户真实操作浏览器
+- 支持各种driver（FirfoxDriver,IternetExplorerDriver,ChromeDriver等）驱动
+- selenium支持无界面浏览器操作
 
+2.为什么使用selenium？
+ 
+模拟浏览器功能，自动执行网页中的js代码，实现动态加载
 
+3.安装selenium
+- ChromeDriver（http://chromedriver.storage.googleapis.com/index.html）
+- pip install selenium
 
+4.selenium使用步骤
+```python
+from selenium import webdriver
 
+path = 'chromedriver.exe'
+browser = webdriver.Chrome(path)
+browser.get("https://www.baidu.com/")
 
+# 通过id定位元素
+button = browser.find_element_by_id("su")
+print(button)
 
+# 通过name定位元素
+name = browser.find_elements_by_name("wd")
+print(name)
 
+# 通过xpath语发定位元素
+img_xpath =  browser.find_elements_by_xpath("//div[@id='wrapper']//input")
+print(img_xpath)
 
+# 通过标签名定位元素
+tag_name = browser.find_elements_by_tag_name('input')
+print(tag_name)
+
+# 通过css属性定位元素
+css_selector = browser.find_elements_by_css_selector('#kw')
+print(css_selector)
+
+# 通过超链接文本定位
+link_text = browser.find_element_by_link_text('贴吧')
+print(link_text)
+
+# 获取元素文本
+print(link_text.text)
+
+# 获取元素属性
+print(link_text.get_attribute('class'))
+
+# 获取标签名
+print(link_text.tag_name)
+# 关闭浏览器
+browser.quit()
+```
+
+### Phantomjs
+- 无界面浏览器
+- 支持页面元素查找，js代码运行
+- 由于不进行css和gui渲染，运行效率高
+```python
+from selenium import webdriver
+
+browser = webdriver.PhantomJS('phantomjs.exe')
+browser.get('https://www.baidu.com/')
+# 保存屏幕快照
+browser.save_screenshot('baidu.png')
+browser.find_element_by_id('kw').send_keys('刘德华')
+browser.find_element_by_id('su').click()
+browser.save_screenshot('刘德华.png')
+browser.quit()
+```
+
+### Chrome handless
+- chrome-headless模式
+```python
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+def share_browser():
+    chrome_options = Options()
+    chrome_options.add_argument('‐‐headless')
+    chrome_options.add_argument('‐‐disable‐gpu')
+    path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+    chrome_options.binary_location = path
+    return webdriver.Chrome(chrome_options=chrome_options)
+
+browser = share_browser()
+browser.get('https://www.baidu.com/')
+```
 
 
 
