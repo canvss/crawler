@@ -393,7 +393,7 @@ Deep Web 爬虫体系结构包含六个基本功能模块 （爬行控制器、�
 ##### ajax的post请求
 >###### 案列:kfc官网(https://github.com/epover/python_crawler/blob/master/code/05-crawler_urllib_ajax_post_kfc.py)
 
-##### URLError\HTTPError
+##### URLError HTTPError
 - HTTPError类是URLError类的子类
 - 导入urllib.error.HTTPError urllib.error.URLError
 >###### 案列:https://github.com/epover/python_crawler/blob/master/code/05-crawler_urllib_except.py
