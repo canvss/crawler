@@ -6,7 +6,6 @@
 
 import urllib.request,json
 from bs4 import BeautifulSoup
-from util import str_replace
 
 def down_load(menu_name_list,picture_url_list):
     for i in range(len(menu_name_list)):
