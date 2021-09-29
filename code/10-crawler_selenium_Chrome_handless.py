@@ -10,6 +10,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+
 def share_browser():
     chrome_options = Options()
     chrome_options.add_argument('‐‐headless')
@@ -18,7 +19,6 @@ def share_browser():
     chrome_options.binary_location = path
     return webdriver.Chrome(chrome_options=chrome_options)
 
+
 browser = share_browser()
 browser.get('https://www.baidu.com/')
-
-
