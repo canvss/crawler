@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2021/9/27 22:17
-# @Author  : endless
+# @Author  :
+
 # @FileName: 09-crawler_bs4_starbucks_menu_picture.py
 # @GitHub  ：https://github.com/epover
 
