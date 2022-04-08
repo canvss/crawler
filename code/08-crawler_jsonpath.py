@@ -7,10 +7,10 @@
 import json,jsonpath
 
 object = json.load(open('08-crawler_jsonpath.json','r',encoding='utf-8'))
-
+print(object)
 # 获取所有书的作者
-# author_list = jsonpath.jsonpath(object,'$.store.book[*].author')
-# print(author_list)
+author_list = jsonpath.jsonpath(object,'$.store.book[*].author')
+print(author_list)
 
 # 所有的作者
 # author_list = jsonpath.jsonpath(object,'$..author')
