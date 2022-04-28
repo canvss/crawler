@@ -143,7 +143,7 @@
 
 robots.txt(小写)是一种存放与根目录下的ASCCI编码的文本文件，它通常搞忘网络蜘蛛，此网站中的**哪些内容是不应被网络蜘蛛爬取的，哪些是可以被网络蜘蛛爬取的。
 
-![](/static/imgs/crawler/robots.txt-file.png)
+![](/static/imgs/robots.txt-file.png)
 
 <center >
    <p style="color:#A8A8A8">
