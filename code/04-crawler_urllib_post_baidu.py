@@ -12,6 +12,7 @@
 '''
 import urllib.request,urllib.parse,ssl,json
 
+
 def get_post_baidu_translate_details():
     url = 'https://fanyi.baidu.com/v2transapi?from=en&to=zh'
     headers = {
@@ -35,5 +36,6 @@ def get_post_baidu_translate_details():
     content = response.read().decode('utf-8')
     resp_obj =json.loads(content)
     print(resp_obj)
+
 
 get_post_baidu_translate_details()
