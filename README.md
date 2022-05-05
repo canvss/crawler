@@ -47,3 +47,9 @@
 - Phantomjs
 
 - Chrome handless
+
+## [七、requests](README/Python爬虫-requests.md)
+- get请求
+- post请求
+- 代理
+- cookie
