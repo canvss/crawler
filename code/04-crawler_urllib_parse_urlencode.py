@@ -30,7 +30,7 @@ def get_webpage():
     response = urllib.request.urlopen(request,context=ssl.SSLContext())
     if response.getcode() == 200:
         content = response.read().decode('utf-8')
-        with open('baidu.html','w') as f:
+        with open('baidu.html','w',encoding='utf-8') as f:
             f.write(content)
     else:
         print('Crawl failed ！')
