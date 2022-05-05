@@ -35,4 +35,6 @@ def get_webpage():
     else:
         print('Crawl failed ！')
 
-get_webpage()
+
+if __name__ == '__main__':
+    get_webpage()
