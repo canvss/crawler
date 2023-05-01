@@ -49,7 +49,7 @@ Deep Web 爬虫体系结构包含六个基本功能模块 （**爬行控制器�
 
 ## 爬虫用途
 
-![](/static/imgs/spider-10.jpeg)
+![](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/spider-10.jpeg)
 
  - 数据分析/数据源
  - 社交软件冷启动
