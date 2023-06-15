@@ -19,7 +19,7 @@ HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件
 
 **HTTP请求报文由3部门组成(请求行+请求头+请求体)**
 
-![](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/http01.png)
+![](imgs/http01.png)
 
 ### HTTP请求报文
 
@@ -51,7 +51,7 @@ HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件
 
 **响应报文由三个部分组成（相应行，响应头，响应体）**
 
-![](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/http04.png)
+![](imgs/http04.png)
 
 - 报文协议及版本；
 
@@ -63,7 +63,7 @@ HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件
 
 ### HTTP相应状态码
 
-![](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/status_code.png)
+![](imgs/status_code.png)
 
 - 200 OK 表示成功
 - 303 重定向,把你重定向到其他页面
@@ -84,7 +84,7 @@ HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件
 
 **域名解析 --> 建立连接 --> 接受请求 --> 处理请求 --> 访问资源 --> 构建相应报文 --> 发送响应报文 --> 记录日志**
 
-![](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/http03.png)
+![](imgs/http03.png)
 
 #### 域名解析：
 
@@ -99,7 +99,7 @@ DNS 的详细解析过程：http://vinsent.blog.51cto.com/13116656/1967876
 - TCP三次握手
 - TCP四次挥手
 
-[![alt text](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/tcp.png "TCP三次握手，四次挥手”你真的懂吗？")](https://zhuanlan.zhihu.com/p/53374516)
+[![alt text](imgs/tcp.png "TCP三次握手，四次挥手”你真的懂吗？")](https://zhuanlan.zhihu.com/p/53374516)
 
 #### 接收请求：
 
@@ -123,7 +123,7 @@ DNS 的详细解析过程：http://vinsent.blog.51cto.com/13116656/1967876
 
 **Cookie，有时也用其复数形式 Cookies。类型为“小型文本文件”，是某些网站为了辨别用户身份，进行Session跟踪而储存在用户本地终端上的数据（通常经过加密），由用户客户端计算机暂时或永久保存的信息**
 
-![](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/cookie.png)
+![](imgs/cookie.png)
 
 - 1、Cookie是一种在客户端保持HTTP状态信息的技术
 
@@ -150,7 +150,7 @@ DNS 的详细解析过程：http://vinsent.blog.51cto.com/13116656/1967876
 
 **Session 是 用于保持状态的基于Web服务器的方法。Session允许通过将对象存储在Web服务器的内存中在整个用户会话过程中保持任何对象**
 
-![](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/session2.png)
+![](imgs/session2.png)
 
 - 使用Cookie和附加URL参数都可以将上次请求的状态信息传递到下次请求中，但是如果传递的状态信息较多，将极大降低网络传输效率和增大服务器端程序处理的难度。
 
@@ -165,7 +165,7 @@ DNS 的详细解析过程：http://vinsent.blog.51cto.com/13116656/1967876
 
 ### Cookie和Session
 
-![](https://canvs.oss-cn-chengdu.aliyuncs.com/canvs_typora/PythonCrawler/session&cookie.png)
+![](imgs/session&cookie.png)
 
 **session和cookie同样都是针对单独用户对象，不同的用户在访问网站时，都会拥有各种的session或者cookie，不同用户之间互不干扰。**
 
